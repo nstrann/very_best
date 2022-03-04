@@ -1,6 +1,10 @@
 class Cuisine < ApplicationRecord
   # Direct associations
 
+  has_many   :dishes,
+             :foreign_key => "c_id",
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
