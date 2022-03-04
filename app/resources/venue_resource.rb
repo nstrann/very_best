@@ -8,6 +8,8 @@ class VenueResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks
+
   belongs_to :neighborhood,
              foreign_key: :n_id
 
