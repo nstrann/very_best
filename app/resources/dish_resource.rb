@@ -7,6 +7,8 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks
+
   belongs_to :cuisine,
              foreign_key: :c_id
 
