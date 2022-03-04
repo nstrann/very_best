@@ -68,7 +68,7 @@
 
     <%= f.label :n_id %>
     <!-- Input for n_id start -->
-    <%= f.number_field :n_id, class: n_class, placeholder: "Enter n" %>
+    <%= f.collection_select :n_id, Neighborhood.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for n_id end -->
     <% if n_was_invalid %>
       <% venue.errors.full_messages_for(:n).each do |message| %>
