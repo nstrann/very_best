@@ -6,6 +6,9 @@ class CuisineResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :dishes,
+             foreign_key: :c_id
+
   # Indirect associations
 
 end
