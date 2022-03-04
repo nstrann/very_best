@@ -1,0 +1,31 @@
+<% was_validated = neighborhood.errors.any? %>
+
+<%= form_with(model: neighborhood, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for n_name start -->
+  <div class="form-group">
+    <% n_name_class = "form-control" %>
+    <% n_name_was_invalid = neighborhood.errors.include?(:n_name) %>
+
+    <% if was_validated %>
+      <% if n_name_was_invalid %>
+        <% n_name_class << " is-invalid" %>
+      <% else %>
+        <% n_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :n_name %>
+    <!-- Input for n_name start -->
+    <%= f.text_field :n_name, class: n_name_class, placeholder: "Enter n name" %>
+    <!-- Input for n_name end -->
+    <% if n_name_was_invalid %>
+      <% neighborhood.errors.full_messages_for(:n_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for n_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
