@@ -1,7 +1,6 @@
 <% was_validated = neighborhood.errors.any? %>
 
 <%= form_with(model: neighborhood, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for n_name start -->
   <div class="form-group">
     <% n_name_class = "form-control" %>
     <% n_name_was_invalid = neighborhood.errors.include?(:n_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :n_name %>
-    <!-- Input for n_name start -->
     <%= f.text_field :n_name, class: n_name_class, placeholder: "Enter n name" %>
-    <!-- Input for n_name end -->
     <% if n_name_was_invalid %>
       <% neighborhood.errors.full_messages_for(:n_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for n_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
