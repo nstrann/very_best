@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :very_bests,
+             resource: BookmarkResource
+
   # Indirect associations
 
 end
