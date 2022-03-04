@@ -2,10 +2,10 @@ class Dish < ApplicationRecord
   # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :cuisine,
-             :foreign_key => "c_id"
+             foreign_key: "c_id"
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Dish < ApplicationRecord
   def to_s
     dish_name
   end
-
 end

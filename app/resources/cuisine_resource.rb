@@ -10,5 +10,4 @@ class CuisineResource < ApplicationResource
              foreign_key: :c_id
 
   # Indirect associations
-
 end

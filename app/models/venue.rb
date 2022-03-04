@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Venue < ApplicationRecord
   before_validation :geocode_address
 
   def geocode_address
-    if self.address.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.address)}"
+    if address.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(address)}"
 
       raw_data = open(url).read
 
@@ -22,10 +22,10 @@ class Venue < ApplicationRecord
   # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :neighborhood,
-             :foreign_key => "n_id"
+             foreign_key: "n_id"
 
   # Indirect associations
 
@@ -36,5 +36,4 @@ class Venue < ApplicationRecord
   def to_s
     name
   end
-
 end

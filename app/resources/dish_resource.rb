@@ -13,5 +13,4 @@ class DishResource < ApplicationResource
              foreign_key: :c_id
 
   # Indirect associations
-
 end

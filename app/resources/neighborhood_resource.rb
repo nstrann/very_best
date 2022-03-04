@@ -10,5 +10,4 @@ class NeighborhoodResource < ApplicationResource
              foreign_key: :n_id
 
   # Indirect associations
-
 end

@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :very_bests,
-             :class_name => "Bookmark",
-             :dependent => :destroy
+             class_name: "Bookmark",
+             dependent: :destroy
 
   # Indirect associations
 
