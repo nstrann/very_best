@@ -5,7 +5,8 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks
   def index
-    @bookmarks = current_user.very_bests.page(params[:page]).per(10)
+    @q = current_user.very_bests.ransack(params[:q])
+    @bookmarks = @q.result(:distinct => true).includes(:user, :dish, :venue).page(params[:page]).per(10)
   end
 
   # GET /bookmarks/1
