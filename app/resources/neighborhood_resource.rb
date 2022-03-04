@@ -6,6 +6,9 @@ class NeighborhoodResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :venues,
+             foreign_key: :n_id
+
   # Indirect associations
 
 end

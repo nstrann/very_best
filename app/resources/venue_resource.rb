@@ -8,6 +8,9 @@ class VenueResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :neighborhood,
+             foreign_key: :n_id
+
   # Indirect associations
 
 end
